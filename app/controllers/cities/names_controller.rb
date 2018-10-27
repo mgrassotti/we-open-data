@@ -4,6 +4,8 @@ class Cities::NamesController < ApplicationController
   end
 
   def show
-    render json: City.where(nome: /^#{Regexp.escape(params[:id])}$/i).first.to_json(:except => :_id)
+    city = City.where(nome: /^#{Regexp.escape(params[:id])}$/i).first
+    raise Mongoid::Errors::DocumentNotFound.new(City, params[:id]) unless city
+    render json: city.to_json(:except => :_id) 
   end
 end
