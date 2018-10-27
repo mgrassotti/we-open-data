@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'services#index'
+  namespace :cities do
+    resources :names, only: [:index, :show]
+    resources :zipcodes, only: [:index, :show]
+  end
 end
