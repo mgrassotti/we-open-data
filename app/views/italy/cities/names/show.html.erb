@@ -1,0 +1,16 @@
+<h1><%= @city.nome %></h1>
+<ul>
+  <li>CAP: <%= @city.cap %></li>
+  <% if @city.cm["nome"].present? %>
+    <li>Comune: <%= @city.cm["nome"] %></li>
+  <% end %>
+  <li>Codice: <%= @city.codice %></li>
+  <li>Codice Catastale: <%= @city.codiceCatastale %></li>
+  <li>Popolazione: <%= @city.popolazione %></li>
+  <% if @city.provincia["nome"].present? %>
+    <li>Provincia: <%= @city.provincia["nome"] %></li>
+  <% end %> 
+  <li>Regione: <%= @city.regione["nome"] %></li>
+  <li>Sigla: <%= @city.sigla %></li>
+  <li>Zona: <%= @city.zona["nome"] %></li>
+</ul>
