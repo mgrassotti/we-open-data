@@ -1,4 +1,4 @@
-class Cities::ZipcodesController < ApplicationController
+class Italy::Cities::ZipcodesController < ApplicationController
   def index
     render json: City.pluck(:cap).flatten.sort.uniq
   end

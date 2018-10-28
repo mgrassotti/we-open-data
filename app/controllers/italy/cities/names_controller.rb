@@ -1,4 +1,4 @@
-class Cities::NamesController < ApplicationController
+class Italy::Cities::NamesController < ApplicationController
   def index
     render json: City.pluck(:nome)
   end
