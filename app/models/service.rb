@@ -1,16 +1,13 @@
-# == Schema Information
-#
-# Table name: services
-#
-#  id          :bigint(8)        not null, primary key
-#  name        :string
-#  path        :string
-#  description :text
-#  version     :string
-#  data_source :string
-#
+class Service
+  include Mongoid::Document
 
-class Service < ApplicationRecord
+  field :name, type: String 
+  field :path, type: String 
+  field :subpaths, type: Array  
+  field :description, type: String 
+  field :version, type: String 
+  field :data_source, type: String 
+
   def as_json(params={})
     super(params.merge({
       except: [:id, :path, :subpaths]
@@ -26,9 +23,5 @@ class Service < ApplicationRecord
 
   def urls(base_url)
     subpaths.map{|subpath| url(base_url) + subpath }
-  end
-
-  def subpaths
-    read_attribute(:subpaths).split("; ")
   end
 end
