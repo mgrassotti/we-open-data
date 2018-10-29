@@ -41,7 +41,7 @@ You can retrieve each response in HTML or JSON format. For a JSON response you s
   * `/names.json`
   * `/names?format=json`
 
-The cities data is stored and loaded from the `/lib/data/italian/cities.json`
+The cities data is stored and loaded from the file `/lib/data/italian/cities.json`
 
 Data source: https://github.com/matteocontrini/comuni-json/blob/master/comuni.json
 
