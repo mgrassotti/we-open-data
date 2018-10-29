@@ -1,24 +1,50 @@
-# README
+# Web-Engineering.it - Data Web Services
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Public data exposed via Web services.
 
-Things you may want to cover:
+The project is live here: http://data.web-engineering.it (the server wakes up on request, so please be patient...)
 
-* Ruby version
+# System setup
 
-* System dependencies
+If you want to run the system locally, all you have to do is:
 
-* Configuration
+* Clone the repo
+* Install its dependencies:
+  * Install gems: `$ bundle install`
+  * Install mongoDB: if you have not already installed it, you can check it out at https://docs.mongodb.com/manual/installation/
+  * Install PostgreSQL: if you have not already installed it, you can check it out at https://www.postgresql.org/download/
 
-* Database creation
+* Create and initialize the Postgres database:
+  `$ rake db:create db:migrate db:seed`
 
-* Database initialization
+# Run and check it out
 
-* How to run the test suite
+Now that you have all the components installed, you can run the server with `$ rails server` and checkout the system at `http://localhost:3000`
 
-* Services (job queues, cache servers, search engines, etc.)
+# Services Currently Live
 
-* Deployment instructions
+## Italian Cities
 
-* ...
+Live at: http://data.web-engineering.it/italy/cities
+
+Lists Italian cities names and zipcodes, at the following paths: 
+* `/names`
+* `/zipcodes`
+
+You can also check if a specific city name or zipcode exists, with the following paths: 
+  * `/names/{name}`
+  * `/zipcodes/{zipcode}` 
+
+If the name/zipcode exists, its information is shown, else a 404 error is returned.
+
+You can retrieve each response in HTML or JSON format. For a JSON response you should append a `.json` to the path, or you should request it with a `format=json` parameter, e.g.:
+  * `/names.json`
+  * `/names?format=json`
+
+Data source: https://github.com/matteocontrini/comuni-json/blob/master/comuni.json
+
+# Contributing
+
+Just open an issue for any question or improvement proposal. 
+
+Thanks!
