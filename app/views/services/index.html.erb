@@ -1,7 +1,9 @@
-<h1>Services</h1>
-<ul>
-  <% @services.each do |service| %>
-    <li>Name: <%= service.name %></li>
-    <%= render service %>
-  <% end %>
-</ul>
+<h1>Public Data Web Services</h1>
+<p>Public data exposed via Web services.</p>
+
+<p>Github: <a href="https://github.com/mgrassotti/we-data">https://github.com/mgrassotti/we-data</a>
+<hr>
+<% @services.each do |service| %>
+  <%= render service %>
+  <hr>
+<% end %>
