@@ -1,4 +1,4 @@
-class Italy::CitiesController < ApplicationController
+class Italian::CitiesController < ApplicationController
   def index
     @service = Service.find_by!(name: "Italian Cities")
     respond_to do |format|

@@ -1,4 +1,4 @@
-class Italy::Cities::ZipcodesController < ApplicationController
+class Italian::Cities::ZipcodesController < ApplicationController
   def index
     @zipcodes = City.pluck(:cap).flatten.sort.uniq
     respond_to do |format|

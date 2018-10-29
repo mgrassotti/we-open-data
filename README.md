@@ -1,4 +1,4 @@
-# Web-Engineering.it - Data Web Services
+# Public Data Web Services
 
 Public data exposed via Web services.
 
@@ -25,16 +25,16 @@ Now that you have all the components installed, you can run the server with `$ r
 
 ## Italian Cities
 
-Live at: http://data.web-engineering.it/italy/cities
+Live at: http://data.web-engineering.it/italian/cities
 
 Lists & search Italian cities, by name and zipcode. 
 
 You can find a list of all cities at the following paths: 
-* `/italy/cities/names`
-* `/italy/cities/zipcodes`
+* `/italian/cities/names`
+* `/italian/cities/zipcodes`
 
 You can also check if a specific city name or zipcode exists, passing the name or the zipcode in the url: 
-  * `/italy/cities/{name|zipcode}`
+  * `/italian/cities/{name|zipcode}`
 
 If the name/zipcode exists, its information is shown, else a 404 error is returned.
 

@@ -1,6 +1,6 @@
 <h1>Zipcodes</h1>
 <ul>
   <% @zipcodes.each do |zipcode| %>
-    <li><%= link_to zipcode, italy_cities_zipcode_path(zipcode) %></li>
+    <li><%= link_to zipcode, italian_city_path(zipcode) %></li>
   <% end %>
 </ul>

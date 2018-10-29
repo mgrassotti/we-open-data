@@ -1,4 +1,4 @@
-class Italy::Cities::NamesController < ApplicationController
+class Italian::Cities::NamesController < ApplicationController
   def index
     @names = City.pluck(:nome)
     respond_to do |format|
