@@ -13,11 +13,19 @@
 class Service < ApplicationRecord
   def as_json(params={})
     super(params.merge({
-      except: [:path, :subpaths]
+      except: [:id, :path, :subpaths]
     })).merge({
-      url: params[:url] + path,
-      urls: subpaths.map{|subpath| params[:url] + path + subpath }
+      url: url(params[:base_url]),
+      urls: urls(params[:base_url])
     })
+  end
+
+  def url(base_url)
+    base_url + path
+  end
+
+  def urls(base_url)
+    subpaths.map{|subpath| url(base_url) + subpath }
   end
 
   def subpaths

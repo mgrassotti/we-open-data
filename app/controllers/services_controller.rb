@@ -1,10 +1,16 @@
 class ServicesController < ApplicationController
   def index
-    render json: Service.all.map { |s| s.as_json(url: current_url) }
+    @services = Service.all
+    respond_to do |format|
+      format.html
+      format.json { 
+        render json: @services.map { |s| s.as_json(base_url: base_url) } 
+      }
+    end
   end
 
   def show
     @service = Service.find(params[:id])
-    render json: @service.as_json(url: current_url)
+    render json: @service.as_json(base_url: base_url)
   end
 end

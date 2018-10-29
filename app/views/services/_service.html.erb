@@ -1,0 +1,8 @@
+<li>Description: <%= service.description %></li>
+<li>Version: <%= service.version %></li>
+<li>Data Source: <%= service.data_source %></li>
+<li>URL: <%= link_to service.url(base_url), service.url(base_url) %></li>
+<li>URLs: <% service.urls(base_url).each do |u| %> 
+  <ul><li><%= link_to u, u %></li></ul>
+  <% end %>
+</li>
