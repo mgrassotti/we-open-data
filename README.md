@@ -12,10 +12,9 @@ If you want to run the system locally, all you have to do is:
 * Install its dependencies:
   * Install gems: `$ bundle install`
   * Install mongoDB: if you have not already installed it, you can check it out at https://docs.mongodb.com/manual/installation/
-  * Install PostgreSQL: if you have not already installed it, you can check it out at https://www.postgresql.org/download/
-
-* Create and initialize the Postgres database:
-  `$ rake db:create db:migrate db:seed`
+  
+* Initialize the database:
+  `$ rake db:seed`
 
 # Run and check it out
 
@@ -41,6 +40,8 @@ If the name/zipcode exists, its information is shown, else a 404 error is return
 You can retrieve each response in HTML or JSON format. For a JSON response you should append a `.json` to the path, or you should request it with a `format=json` parameter, e.g.:
   * `/names.json`
   * `/names?format=json`
+
+The cities data is stored and loaded from the `/lib/data/italian/cities.json`
 
 Data source: https://github.com/matteocontrini/comuni-json/blob/master/comuni.json
 
