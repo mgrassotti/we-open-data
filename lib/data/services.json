@@ -3,7 +3,7 @@
     "name": "Italian Cities", 
     "path": "/italy/cities",
     "subpaths": ["/names", "/zipcodes"],
-    "description": "Lists Italian cities names and zipcodes. You can also look for a specific city name or zipcode, with the following paths: `/names/{name}, `/zipcodes/{zipcode}`. If a name/zipcode is found, its information is shown. Else a 404 error is returned.",
+    "description": "Lists Italian cities names and zipcodes. You can also look for a specific city name or zipcode: `/italy/cities/{name | zipcode}`. If a city is found by name or zipcode, its information is shown. Else a 404 error is returned.",
     "data_source": "https://github.com/matteocontrini/comuni-json/blob/master/comuni.json",
     "version": "1.0"
   }

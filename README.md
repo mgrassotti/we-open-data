@@ -27,13 +27,14 @@ Now that you have all the components installed, you can run the server with `$ r
 
 Live at: http://data.web-engineering.it/italy/cities
 
-Lists Italian cities names and zipcodes, at the following paths: 
-* `/names`
-* `/zipcodes`
+Lists & search Italian cities, by name and zipcode. 
 
-You can also check if a specific city name or zipcode exists, with the following paths: 
-  * `/names/{name}`
-  * `/zipcodes/{zipcode}` 
+You can find a list of all cities at the following paths: 
+* `/italy/cities/names`
+* `/italy/cities/zipcodes`
+
+You can also check if a specific city name or zipcode exists, passing the name or the zipcode in the url: 
+  * `/italy/cities/{name|zipcode}`
 
 If the name/zipcode exists, its information is shown, else a 404 error is returned.
 
