@@ -1,6 +1,6 @@
-# Public Data Web Services
+# Web Engineering Data
 
-Public data exposed via Web services.
+Open Data exposed via Web Services.
 
 The project is live here: http://data.web-engineering.it (the server wakes up on request, so please be patient...)
 
@@ -20,7 +20,7 @@ If you want to run the system locally, all you have to do is:
 
 Now that you have all the components installed, you can run the server with `$ rails server` and checkout the system at `http://localhost:3000`
 
-# Services Currently Live
+# Services Live Now
 
 ## Italian Cities
 
