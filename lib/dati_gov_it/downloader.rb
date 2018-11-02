@@ -5,30 +5,30 @@ class DatiGovIt::Downloader
 
   def get_package_list
     log "#{__method__} - START"
-    packages = HTTParty.get(PACKAGE_LIST_URL)["result"].sort
-    packages.each { |package| 
-      unless DatiGovIt::Package.where(name: package).any?
-        DatiGovIt::Package.new(name: package).save 
-      end
-      }
-    log "#{packages.count} packages saved"
+    packages = HTTParty.get(PACKAGE_LIST_URL)["result"].sort - DatiGovIt::Package.pluck(:name)
+    packages.each { |package|
+      DatiGovIt::Package.new(name: package).save 
+      log "#{package} added to packages list"
+    }
+    log "#{packages.count} new packages added"
     log "#{__method__} - END"
   end
 
   def get_packages
     log "#{__method__} - START"
-    packages = DatiGovIt::Package.all
-    total = packages.length
+    packages = DatiGovIt::Package.where(title: nil)
+    total = DatiGovIt::Package.all.count
     packages.each_with_index do |package, i|
-      # next if DatiGovIt::Package.where(name: package).any?
-      progress = (i.to_f / total).round(2)
+      progress = ((i*100).to_f / total).round(2)
       result = HTTParty.get(PACKAGE_SHOW_URL + package.name)
       if result.code == 404
-        log "#{package} not found (#{progress}%)"
+        log "#{package.name} not found (#{progress}%)"
         package.update_attributes(_web_error: "404")
       else
         log "saving #{package.name} (#{progress}%)" 
-        package.update_attributes(result["result"])
+        values = result["result"].except("id")
+        values["gov_id"] = result["result"]["id"]
+        package.update_attributes(values)
       end
     end
     log "#{__method__} - END"
@@ -37,6 +37,5 @@ class DatiGovIt::Downloader
 private
   def log(message)
     Rails.logger.info(message)
-    puts message
   end
 end

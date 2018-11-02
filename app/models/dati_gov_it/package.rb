@@ -1,8 +1,8 @@
 class DatiGovIt::Package
   include Mongoid::Document
-  include Mongoid::Attributes::Dynamic
+  # include Mongoid::Attributes::Dynamic
 
-  field :id, type: String
+  field :gov_id, type: String
   field :name, type: String
   field :title, type: String
   field :maintainer, type: String
