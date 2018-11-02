@@ -1,5 +1,7 @@
 class DatiGovIt::Package
   include Mongoid::Document
+  include Mongoid::Attributes::Dynamic
+
   field :id, type: String
   field :name, type: String
   field :title, type: String
@@ -24,4 +26,5 @@ class DatiGovIt::Package
   field :extras, type: Array
   field :_catalog_parent_name, type: String
   field :_catalog_source_url, type: String
+  field :_web_error, type: String
 end
