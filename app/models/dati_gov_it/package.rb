@@ -27,4 +27,22 @@ class DatiGovIt::Package
   field :_catalog_parent_name, type: String
   field :_catalog_source_url, type: String
   field :_web_error, type: String
+
+  def self.populated_fields
+    total_documents = DatiGovIt::Package.all.count
+    self.new.fields.keys.inject({}) do |res, field|
+      total = DatiGovIt::Package.where(field.to_sym.nin => ["", nil]).count
+      res[field] = "#{((total*100).to_f / total_documents).round(2)}%"
+      res
+    end
+  end
+
+  def self.values_per_field
+    self.new.fields.keys.inject({}) do |res, field|
+      keys = DatiGovIt::Package.all.group_by(&(field.to_sym)).keys
+      res[field] = keys.count > 5 ? ">5" : keys
+      res
+    end
+  end
+
 end
