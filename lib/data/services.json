@@ -6,5 +6,13 @@
     "description": "Lists Italian cities names and zipcodes. You can also look for a specific city name or zipcode: `/italian/cities/{name | zipcode}`. If a city is found by name or zipcode, its information is shown. Else a 404 error is returned.",
     "data_source": "https://github.com/matteocontrini/comuni-json/blob/master/comuni.json",
     "version": "1.0"
+  },
+  {
+    "name": "Gov IT Packages", 
+    "path": "/gov_it/packages",
+    "subpaths": [],
+    "description": "Lists data packages from the Italian Goverment open database",
+    "data_source": "https://dati.gov.it/api/3/action/package_list",
+    "version": "1.0"
   }
 ]

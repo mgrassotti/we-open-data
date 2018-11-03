@@ -1,0 +1,9 @@
+<% if @package._catalog_parent_name %>
+  <h2><%= @package._catalog_parent_name %></h2>
+<% end %>
+<h1><%= @package.title || @package.name %></h1>
+<ul>
+  <% (@package.attributes.keys - ["_id", "name", "title", "state", "log_message"]).each do |attribute| %>
+    <li><%= attribute %>: <%= @package.send(attribute) %></li>
+  <% end -%>
+</ul>

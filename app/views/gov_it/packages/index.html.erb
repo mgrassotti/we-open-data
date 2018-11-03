@@ -1,0 +1,10 @@
+<h1>GovIt::Packages</h1>
+<p>Filter by catalog parent name: <% GovIt::Package.count_by_catalog_parent_name.each do |name, count| %> <%= link_to "#{name || "Nil"} (#{count})", gov_it_packages_path(catalog_parent_name: name) %> | <% end %></p>
+
+<%= render "links" %>
+<ul>
+  <% @packages.each do |package| %>
+    <li><%= link_to package.name, gov_it_package_path(package.name) %></li>
+  <% end %>
+</ul>
+<%= render "links" %>

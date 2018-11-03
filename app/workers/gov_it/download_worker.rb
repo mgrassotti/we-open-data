@@ -1,8 +1,8 @@
-class DatiGovIt::DownloadWorker
+class GovIt::DownloadWorker
   include Sidekiq::Worker
 
   def perform
-    d = DatiGovIt::Downloader.new
+    d = GovIt::Downloader.new
     d.get_package_list
     d.get_packages
   end

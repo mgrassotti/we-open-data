@@ -1,13 +1,12 @@
-class DatiGovIt::Downloader
+class GovIt::Downloader
   PACKAGE_LIST_URL = "https://www.dati.gov.it/api/3/action/package_list"
   PACKAGE_SHOW_URL = "https://www.dati.gov.it/api/3/action/package_show?id="
-  FILE_DIR_PATH = "#{Rails.root}/lib/data/dati_gov_it"
-
+  
   def get_package_list
     log "#{__method__} - START"
-    packages = HTTParty.get(PACKAGE_LIST_URL)["result"].sort - DatiGovIt::Package.pluck(:name)
+    packages = HTTParty.get(PACKAGE_LIST_URL)["result"].sort - GovIt::Package.pluck(:name)
     packages.each { |package|
-      DatiGovIt::Package.new(name: package).save 
+      GovIt::Package.new(name: package).save 
       log "#{package} added to packages list"
     }
     log "#{packages.count} new packages added"
@@ -16,8 +15,8 @@ class DatiGovIt::Downloader
 
   def get_packages
     log "#{__method__} - START"
-    packages = DatiGovIt::Package.where(title: nil)
-    total = DatiGovIt::Package.all.count
+    packages = GovIt::Package.where(title: nil)
+    total = GovIt::Package.where(title: nil).count
     packages.each_with_index do |package, i|
       progress = ((i*100).to_f / total).round(2)
       result = HTTParty.get(PACKAGE_SHOW_URL + package.name)

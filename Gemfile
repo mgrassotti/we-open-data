@@ -65,3 +65,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # download
 gem 'httparty'
 gem 'sidekiq'
+
+# vulnerability
+gem 'loofah', '~> 2.2.3'

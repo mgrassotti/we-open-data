@@ -26,7 +26,7 @@ Now that you have all the components installed, you can run the server with `$ r
 
 Live at: http://data.web-engineering.it/italian/cities
 
-Lists & search Italian cities, by name and zipcode. 
+Lists & searches Italian cities, by name and zipcode. 
 
 You can find a list of all cities at the following paths: 
 * `/italian/cities/names`
@@ -44,6 +44,22 @@ You can retrieve each response in HTML or JSON format. For a JSON response you s
 The cities data is stored and loaded from the file `/lib/data/italian/cities.json`
 
 Data source: https://github.com/matteocontrini/comuni-json/blob/master/comuni.json
+
+## Gov IT Packages
+
+Live at: http://data.web-engineering.it/gov_it
+
+Lists & presents Italian government & local government bodies open data.
+
+You can find a list of all data packages at the following paths: 
+* `/gov_it/packages`
+
+You can also look for a specific package, passing the name in the url: 
+  * `/gov_it/packages/{name}`
+
+You can retrieve each response in HTML or JSON format. For a JSON response you should append a `.json` to the path, or you should request it with a `format=json` parameter.
+
+Data source: https://www.dati.gov.it/api/3/action/package_list
 
 # Contributing
 

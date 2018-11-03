@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get '/gov_it' => 'gov_it/packages#index'
+  namespace :gov_it do
+    resources :packages, only: [:index, :show]
+  end
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   

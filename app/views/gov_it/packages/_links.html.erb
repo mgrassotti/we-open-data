@@ -1,0 +1,16 @@
+<% last_offset = @total_packages.count/1000*1000 %>
+<%= "#{params[:offset].to_i} - #{params[:offset].to_i < last_offset ? params[:offset].to_i + 1000 : last_offset + @total_packages.count % 1000}" %>
+<br>
+
+<% back_offset = params[:offset].to_i - 1000 > 0 ? params[:offset].to_i - 1000 : 0 %>
+<% next_offset = params[:offset].to_i + 1000 %>
+<% unless params[:offset].to_i == 0 %>
+  <%= link_to "<< first", gov_it_packages_path %>
+  <%= link_to "< back", gov_it_packages_path(offset: back_offset) %>
+<% end %>
+
+<% unless params[:offset].to_i == last_offset %>
+  <%= link_to "next >", gov_it_packages_path(offset: next_offset) unless @total_packages.asc(:name).limit(1000)
+        .skip(next_offset).count == 0 %>
+  <%= link_to "last >>", gov_it_packages_path(offset: last_offset) %>
+<% end %> 
