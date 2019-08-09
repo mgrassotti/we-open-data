@@ -2,8 +2,6 @@
 
 Open Data exposed via Web Services.
 
-The project is live here: http://data.web-engineering.it (the server wakes up on request, so please be patient...)
-
 # System setup
 
 If you want to run the system locally, all you have to do is:
