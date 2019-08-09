@@ -22,7 +22,7 @@ Now that you have all the components installed, you can run the server with `$ r
 
 ## Italian Cities
 
-Live at: http://data.web-engineering.it/italian/cities
+Live at: http://localhost:3000/italian/cities
 
 Lists & searches Italian cities, by name and zipcode. 
 
@@ -45,7 +45,7 @@ Data source: https://github.com/matteocontrini/comuni-json/blob/master/comuni.js
 
 ## Gov IT Packages
 
-Live at: http://data.web-engineering.it/gov_it
+Live at: http://localhost:3000/gov_it
 
 Lists & presents Italian government & local government bodies open data.
 
