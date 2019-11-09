@@ -67,5 +67,5 @@ gem 'httparty'
 gem 'sidekiq'
 
 # vulnerabilities
-gem 'loofah', '~> 2.2.3'
+gem 'loofah', '~> 2.3.1'
 gem "rack", ">= 2.0.6"
