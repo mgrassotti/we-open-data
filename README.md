@@ -1,4 +1,4 @@
-# Web Engineering Data
+# WE Open Data
 
 Open Data exposed via Web Services.
 
